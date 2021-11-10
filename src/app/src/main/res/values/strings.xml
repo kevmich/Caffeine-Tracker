@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Caffeine_Tracker</string>
+    <string name="edit_message">Enter your full name</string>
+    <string name="button_send">Send</string>
 </resources>
