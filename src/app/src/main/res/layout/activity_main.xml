@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorLight"
+    >
 
 
     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
@@ -20,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="End Time"
@@ -34,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Caffeine in Mg"
         android:inputType="textPersonName"
@@ -47,6 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Start Time"
         android:inputType="textPersonName"
@@ -63,8 +68,10 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:text="Calculate"
+        android:backgroundTint="@color/buttonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/aa_chart_view" />
 
 
