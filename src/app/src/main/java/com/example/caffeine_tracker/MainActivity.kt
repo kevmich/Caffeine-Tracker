@@ -2,11 +2,10 @@ package com.example.caffeine_tracker
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
+import com.github.aachartmodel.aainfographics.aachartcreator.*
+import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,28 +13,31 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        /**
+         * Set up custom action bar title
+         */
+        supportActionBar!!.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+        supportActionBar!!.setCustomView((R.layout.action_bar_layout))
+
         //--------------------------------------------
         val aaChartView = findViewById<AAChartView>(R.id.aa_chart_view)
 
         val aaChartModel : AAChartModel = AAChartModel()
-            .chartType(AAChartType.Area)
-            .title("title")
-            .subtitle("subtitle")
-            .backgroundColor("#4b2b7f")
+            .chartType(AAChartType.Line)
+            .title("Caffeine Decay Time")
+            .subtitle("")
+            .backgroundColor("#FFFFFF")
+            .yAxisAllowDecimals(true)
+            .yAxisTitle("Caffeine in mg")
             .dataLabelsEnabled(true)
+            .animationType(AAChartAnimationType.EaseInQuad)
+            .animationDuration(2)
             .series(arrayOf(
+
                 AASeriesElement()
-                    .name("Tokyo")
-                    .data(arrayOf(7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6)),
-                AASeriesElement()
-                    .name("NewYork")
-                    .data(arrayOf(0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5)),
-                AASeriesElement()
-                    .name("London")
-                    .data(arrayOf(0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0)),
-                AASeriesElement()
-                    .name("Berlin")
-                    .data(arrayOf(3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8))
+                    .name("Time")
+                    .data(arrayOf(8.333333, 16.590627, 24.7725, 32.879, 40.913175, 48.873,  64.5759, 72.320, 79.993, 87.596, 95.1309, 94.262, 93.4027, 92.550, 91.7059, 90.869, 90.040, 89.21841,  88.404, 87.597, 86.798, 86.006, 85.2215, 84.4439, 85.06))
+
                 )
             )
 

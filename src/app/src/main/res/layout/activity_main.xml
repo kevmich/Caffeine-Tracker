@@ -6,10 +6,66 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
         android:id="@+id/aa_chart_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="487dp"
+        tools:ignore="MissingConstraints">
 
     </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="End Time"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Caffeine in Mg"
+        android:inputType="textPersonName"
+        android:textColorLink="#C06CB4"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aa_chart_view" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:ems="10"
+        android:hint="Start Time"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="122dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:text="Calculate"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aa_chart_view" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
