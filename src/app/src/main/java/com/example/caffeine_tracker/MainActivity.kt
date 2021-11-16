@@ -1,6 +1,7 @@
 package com.example.caffeine_tracker
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,26 @@ import okhttp3.*
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
+
+    fun getData(){
+        val url = "https://kanye.rest"
+
+        val response = Request.Builder().url(url).build()
+
+        val client = OkHttpClient()
+
+        client.newCall(response).enqueue(object: Callback {
+            override fun onResponse(call: Call?, response: Response?) {
+                val body = response?.body().toString()
+                Log.e("res", "Http request successful")
+                Log.e("Body", body)
+            }
+
+            override fun onFailure(call: Call?, e: IOException?) {
+                println("Failed to execute")
+            }
+        })
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,27 +70,5 @@ class MainActivity : AppCompatActivity() {
         //---------------------------------------
 
         getData()
-    }
-
-    fun getData(){
-        val url = "https://kanye.rest"
-
-        val response = Request.Builder().url(url).build()
-
-        val client = OkHttpClient()
-
-        client.newCall(response).enqueue(object: Callback {
-            override fun onResponse(call: Call?, response: Response?) {
-                val body = response?.body().toString()
-                println("Http request successful")
-                println(body)
-            }
-
-            override fun onFailure(call: Call?, e: IOException?) {
-                println("Failed to execute")
-            }
-        })
-
-
     }
 }
