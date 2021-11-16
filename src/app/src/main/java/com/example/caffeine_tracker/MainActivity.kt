@@ -6,6 +6,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.github.aachartmodel.aainfographics.aachartcreator.*
 import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
+import okhttp3.*
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,5 +47,29 @@ class MainActivity : AppCompatActivity() {
 
         aaChartView.aa_drawChartWithChartModel(aaChartModel)
         //---------------------------------------
+
+        getData()
+    }
+
+    fun getData(){
+        val url = "https://kanye.rest"
+
+        val response = Request.Builder().url(url).build()
+
+        val client = OkHttpClient()
+
+        client.newCall(response).enqueue(object: Callback {
+            override fun onResponse(call: Call?, response: Response?) {
+                val body = response?.body().toString()
+                println("Http request successful")
+                println(body)
+            }
+
+            override fun onFailure(call: Call?, e: IOException?) {
+                println("Failed to execute")
+            }
+        })
+
+
     }
 }
